@@ -6,10 +6,19 @@ using System.Threading.Tasks;
 
 namespace FactoryMethod
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            PizzaFactory factory = new ConcretePizzaFactory();
+
+            IPizza margarita = factory.GetPizza("Margarita");
+            Console.WriteLine($"La margarita cuesta {margarita.getPrice()} euros");
+
+            IPizza barbacoa = factory.GetPizza("Barbacoa");
+            Console.WriteLine($"La barbacoa cuesta {barbacoa.getPrice()} euros");
+
+            Console.ReadKey();
         }
     }
 }
